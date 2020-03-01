@@ -1,0 +1,7 @@
+{
+  "name": "LitShell",
+  "version": "1.0.0",
+  "dependencies": {
+    "yargs": "^15.2.0"
+  }
+}
