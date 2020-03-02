@@ -20,14 +20,15 @@ let argv = require("yargs")
     .example("lit --publish git@github.com:your_github_name/your_github_name.github.io.git", "publish to your_github_name.github.io")
     .help("h")
     .alias("h", "help")
+    //.demandOption(["clear", "test", "publish", "help", "c", "t", "p", "h"])
     .argv;
 
-if (argv.c) {
+if (argv.c !== undefined) {
     require("./clear").clear();
 }
-else if (argv.t) {
+else if (argv.t !== undefined) {
     require("./test").test();
 }
-else if (argv.p !== "") {
+else if (argv.p !== undefined && argv.p !== "") {
     require("./publish").publish(argv.p);
 }
