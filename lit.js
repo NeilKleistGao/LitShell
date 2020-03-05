@@ -26,9 +26,9 @@ let argv = require("yargs")
 if (argv.c !== undefined) {
     require("./clear").clear();
 }
-else if (argv.t !== undefined) {
+if (argv.t !== undefined) {
     require("./test").test();
 }
-else if (argv.p !== undefined && argv.p !== "") {
+if (argv.p !== undefined && argv.p !== "") {
     require("./publish").publish(argv.p);
 }
