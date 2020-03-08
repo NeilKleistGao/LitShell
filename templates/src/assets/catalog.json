@@ -1,0 +1,11 @@
+{
+  "columns": [
+    {
+      "name": "helloworld",
+      "title": "我的第一个专栏",
+      "cover": "cover.png",
+      "intro": "专栏简介",
+      "time": "Tue, 03 Jan 2012 13:35:51"
+    }
+  ]
+}

@@ -10,7 +10,6 @@ module.exports = {
         else {
             for (let dir_index in directories) {
                 clearFiles(directories[dir_index]);
-                fs.rmdirSync(directories[dir_index]);
                 console.log("> remove " + directories[dir_index]);
             }
 
@@ -23,7 +22,7 @@ function getAllGitDirectories() {
     let files_list = fs.readdirSync(".");
     let git_list = new Array();
     for (let index in files_list) {
-        let path = "./" + files_list[index];
+        let path = files_list[index];
         let state = fs.statSync(path);
         if (state.isDirectory() && checkGit(path)) {
             git_list.push(path);

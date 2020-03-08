@@ -1,0 +1,13 @@
+{
+  "full-intro": "这里是专栏的完整简介，你可以在这里放更多的废话",
+  "cover": "cover.png",
+  "tags": ["test", "测试"],
+  "list": [
+    {
+      "name": "test",
+      "title": "测试文章",
+      "author": "dummy",
+      "time": "Tue, 03 Jan 2012 13:35:51"
+    }
+  ]
+}

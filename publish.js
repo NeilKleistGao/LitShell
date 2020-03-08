@@ -6,6 +6,10 @@ module.exports = {
     publish: function (address) {
         let child = process.spawn("npm", ["run", "build"], {cwd: path.join(__dirname, "templates")});
 
+        child.stderr.on("data", (data) => {
+            console.log(data.toString());
+        });
+
         child.stdout.on("data", (data) => {
             console.log(data.toString());
         });
@@ -34,6 +38,10 @@ function update(address) {
     else {
         download_child = process.spawn("git", ["pull"], {cwd: work_path});
     }
+
+    download_child.stderr.on("data", (data) => {
+        console.log(data.toString());
+    });
 
     download_child.stdout.on("data", (data) => {
         console.log(data.toString());
@@ -93,6 +101,10 @@ function copyFile(from, to) {
 
 function push(work_path) {
     let add_child = process.spawn("git", ["add", "."], {cwd: work_path});
+
+    add_child.stderr.on("data", (data) => {
+        console.log(data.toString());
+    });
     add_child.stdout.on("data", (data) => {
         console.log(data.toString());
     });
@@ -100,6 +112,9 @@ function push(work_path) {
     add_child.on("close", (code) => {
         if (code === 0) {
             let commit_child = process.spawn("git", ["commit", "-m", "update blog " + new Date().toDateString()], {cwd: work_path});
+            commit_child.stderr.on("data", (data) => {
+                console.log(data.toString());
+            });
             commit_child.stdout.on("data", (data) => {
                 console.log(data.toString());
             });
@@ -107,6 +122,9 @@ function push(work_path) {
             commit_child.on("close", (code) => {
                 if (code === 0) {
                     let push_child = new process.spawn("git", ["push"], {cwd: work_path});
+                    push_child.stderr.on("data", (data) => {
+                        console.log(data.toString());
+                    });
                     push_child.stdout.on("data", (data) => {
                         console.log(data.toString());
                     });
