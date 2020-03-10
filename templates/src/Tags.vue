@@ -20,7 +20,7 @@
                         </q-img>
                         <q-card-section>{{column["intro"]}}</q-card-section>
                         <q-card-actions align="right">
-                            <q-btn :to="'/column/' + column['name']" flat>前往专栏</q-btn>
+                            <q-btn :to="'/articles/' + column['name']" flat>前往专栏</q-btn>
                         </q-card-actions>
                     </q-card>
                 </template>

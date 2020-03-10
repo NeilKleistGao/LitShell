@@ -1,20 +1,24 @@
 <template>
     <div class="q-pa-md">
-        <OpacityBlock style="width: 50%; margin-left: 25%; margin-right: auto;">
+        <OpacityBlock>
             <template slot="content">
-                <q-card class="bg-indigo-4" align="center" style="width: 100%">
-                    <q-img style="width: 600px; height: 450px" basic :src="'/' + name + '/' + detail['cover']">
-                        <div class="absolute-bottom text-h6">{{name}}</div>
-                    </q-img>
+                <q-card class="bg-indigo-4" align="center">
+                    <q-card-section class="">
+                        <q-img style="width: 600px; height: 450px; margin-top: 0.5rem; margin-bottom: 0.5rem" basic :src="'/' + name + '/' + detail['cover']">
+                            <div class="absolute-bottom">
+                                <p class="text-h6">{{name}}</p>
+                            </div>
+                        </q-img>
+                    </q-card-section>
 
-                    <q-separator></q-separator>
-
-                    <q-card-section>
+                    <q-card-section style="margin-top: 0.5rem; margin-bottom: 0.5rem">
                         <p>{{detail["full-intro"]}}</p>
                         <q-chip v-for="tag in detail['tags']" :key="tag" color="orange-12" icon="bookmark">
                             {{tag}}
                         </q-chip>
                     </q-card-section>
+
+                    <q-separator></q-separator>
 
                     <q-card-section>
                         <q-list>
@@ -38,6 +42,7 @@
                         <q-pagination color="orange-12" v-model="current_page" :max="page_number" :direction-links="true">
                         </q-pagination>
                     </q-card-section>
+
                 </q-card>
             </template>
         </OpacityBlock>
@@ -69,7 +74,7 @@
                 for (let i = 0; i < 10; i++) {
                     let real = (next - 1) * 10 + i;
                     if (real < this.page_number) {
-                        this.link_list[i] = "/article/" + this.name + "/" + this.detail.list[i].name;
+                        this.link_list[i] = "/articles/" + this.name + "/" + this.detail.list[i].name;
                     }
                     else {
                         this.link_list[i] = "";

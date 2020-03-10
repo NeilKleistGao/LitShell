@@ -20,12 +20,12 @@ const routes = [
         component: Tags
     },
     {
-        path: "/column/:name",
+        path: "/articles/:name",
         name: "column",
         component: Column
     },
     {
-        path: "/article/:name/:id",
+        path: "/articles/:name/:id",
         name: "article",
         component: Article
     }

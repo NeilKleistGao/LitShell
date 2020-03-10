@@ -1,15 +1,48 @@
 <template>
     <div class="q-pa-md">
-        <OpacityBlock>
-            <template slot="content">
-                <q-card class="bg-indigo-11">
-                    <q-card-section>
-                        <q-spinner-pie v-if="!done" color="amber-3" size="5em"></q-spinner-pie>
-                        <div v-if="done" v-html="content"></div>
-                    </q-card-section>
-                </q-card>
-            </template>
-        </OpacityBlock>
+        <div class="row">
+            <div class="col-9">
+                <OpacityBlock>
+                    <template slot="content">
+                        <q-card class="bg-indigo-11">
+                            <q-card-section>
+                                <q-spinner-pie v-if="!article_done" color="amber-3" size="5em"></q-spinner-pie>
+                                <article v-if="article_done" v-html="content"></article>
+                            </q-card-section>
+                        </q-card>
+                    </template>
+                </OpacityBlock>
+            </div>
+
+            <div class="col-1"></div>
+
+            <div class="col-2">
+                <OpacityBlock>
+                    <template slot="content">
+                        <q-card class="bg-indigo-11">
+                            <q-card-section>
+                                <q-breadcrumbs class="text-amber text-weight-bold">
+                                    <q-breadcrumbs-el :label="name" :to="'/articles/' + name" icon="widgets" />
+                                    <q-breadcrumbs-el :label="id" icon="navigation" />
+                                </q-breadcrumbs>
+                            </q-card-section>
+
+                            <q-card-section>
+                                <q-spinner-pie v-if="!catalog_done" color="amber-3" size="3em"></q-spinner-pie>
+                                <q-tree v-if="catalog_done" :nodes="catalog" node-key="label" default-expand-all>
+                                    <template v-slot:default-header="prop">
+                                        <span class="text-white">
+                                            {{prop.node.label}}
+                                        </span>
+                                    </template>
+                                </q-tree>
+                            </q-card-section>
+                        </q-card>
+                    </template>
+                </OpacityBlock>
+            </div>
+        </div>
+
     </div>
 </template>
 
@@ -21,15 +54,23 @@
         components: {OpacityBlock},
         data() {
             return {
+                name: this.$route.params.name,
+                id: this.$route.params.id,
                 content: "",
-                done: false
+                article_done: false,
+                catalog_done: false,
+                catalog: {}
             };
         },
         created() {
-            let path = "/" + this.$route.params.name + "/" + this.$route.params.id + ".html";
-            axios.get(path).then((response) => {
+            axios.get("/" + this.name + "/" + this.id + ".html").then((response) => {
                this.content = response.data;
-               this.done = true;
+               this.article_done = true;
+            });
+
+            axios.get("/" + this.name + "/" + this.id + ".json").then((response) => {
+                this.catalog = response.data["catalog"];
+                this.catalog_done = true;
             });
         }
     }

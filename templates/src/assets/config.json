@@ -2,5 +2,8 @@
   "blog_name": "Hello World!",
   "author": "lit shell",
   "contact": "1208368577@qq.com",
-  "intro": "这是关于本网站的文字介绍！"
+  "intro": "这是关于本网站的文字介绍！",
+  "friends": [
+    {"name": "test", "link": "#"}
+  ]
 }
