@@ -1,25 +1,36 @@
 <template>
     <div class="q-pa-md">
-        <OpacityBlock>
+        <OpacityBlock style="width: 60%; margin-left: 20%; margin-right: auto">
             <template slot="content">
-                <q-card class="bg-indigo-4" align="center">
-                    <q-card-section class="">
-                        <q-img style="width: 600px; height: 450px; margin-top: 0.5rem; margin-bottom: 0.5rem" basic :src="'/' + name + '/' + detail['cover']">
-                            <div class="absolute-bottom">
-                                <p class="text-h6">{{name}}</p>
-                            </div>
-                        </q-img>
-                    </q-card-section>
+                <q-parallax>
+                    <template v-slot:media>
+                        <img :src="'/' + name + '/' + detail['cover']">
+                    </template>
 
-                    <q-card-section style="margin-top: 0.5rem; margin-bottom: 0.5rem">
-                        <p>{{detail["full-intro"]}}</p>
-                        <q-chip v-for="tag in detail['tags']" :key="tag" color="orange-12" icon="bookmark">
-                            {{tag}}
-                        </q-chip>
-                    </q-card-section>
+                    <template v-slot:content="scope">
+                        <div class="absolute column items-center content" :style="{
+                            opacity: 0.45 + (1 - scope.percentScrolled) * 0.55,
+                            top: (scope.percentScrolled * 60) + '%',
+                            left: 0,
+                            right: 0}">
 
-                    <q-separator></q-separator>
+                            <p class="text-h6">{{name}}</p>
+                            <p>{{detail["full-intro"]}}</p>
+                            <q-chip v-for="tag in detail['tags']" :key="tag" color="orange-12" icon="bookmark">
+                                {{tag}}
+                            </q-chip>
 
+                        </div>
+                    </template>
+                </q-parallax>
+            </template>
+        </OpacityBlock>
+
+        <br/>
+
+        <OpacityBlock style="width: 60%; margin-left: 20%; margin-right: auto">
+            <template slot="content">
+                <q-card class="content">
                     <q-card-section>
                         <q-list>
                             <q-item v-for="index in 10" :key="index" clickable v-ripple :to="link_list[index - 1]">
@@ -37,11 +48,12 @@
                                 </div>
                             </q-item>
                         </q-list>
-
-                        <br/>
-                        <q-pagination color="orange-12" v-model="current_page" :max="page_number" :direction-links="true">
-                        </q-pagination>
                     </q-card-section>
+
+                    <q-card-actions align="right">
+                        <q-pagination color="light-blue-2" v-model="current_page" :max="page_number" :direction-links="true">
+                        </q-pagination>
+                    </q-card-actions>
 
                 </q-card>
             </template>
@@ -91,5 +103,7 @@
 </script>
 
 <style scoped>
-
+    .content {
+        background: rgba(0, 0, 0, 0.75);
+    }
 </style>

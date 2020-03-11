@@ -9,6 +9,17 @@
                                 <q-spinner-pie v-if="!article_done" color="amber-3" size="5em"></q-spinner-pie>
                                 <article v-if="article_done" v-html="content"></article>
                             </q-card-section>
+
+                            <q-card-actions align="right">
+                                <q-btn push color="teal-1" text-color="teal" icon="img:/wechat.png" label="share!">
+                                    <q-popup-proxy @show="generate()" :offset="[10, 10]">
+                                        <q-banner class="bg-purple-3 text-white">
+                                            <div id="qrcode" style="margin-bottom: 0.5rem"></div>
+                                            <span>扫描二维码并进行分享</span>
+                                        </q-banner>
+                                    </q-popup-proxy>
+                                </q-btn>
+                            </q-card-actions>
                         </q-card>
                     </template>
                 </OpacityBlock>
@@ -42,7 +53,6 @@
                 </OpacityBlock>
             </div>
         </div>
-
     </div>
 </template>
 
@@ -72,6 +82,11 @@
                 this.catalog = response.data["catalog"];
                 this.catalog_done = true;
             });
+        },
+        methods: {
+            generate() {
+                this.$QRCodeShow(window.location.href);
+            }
         }
     }
 </script>
