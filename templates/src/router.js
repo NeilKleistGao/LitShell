@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 
 import Index from "./Index";
 import Tags from "./Tags";
-import Column from "./Column";
+import Section from "./Section";
 import Article from "./Article";
 
 Vue.use(VueRouter);
@@ -21,8 +21,8 @@ const routes = [
     },
     {
         path: "/articles/:name",
-        name: "column",
-        component: Column
+        name: "section",
+        component: Section
     },
     {
         path: "/articles/:name/:id",

@@ -2,7 +2,7 @@ import Vue from 'vue';
 import App from './App.vue';
 import './quasar';
 import QRCode from "qrcode2"
-
+import {Quasar, QIcon} from 'quasar';
 import router from "./router";
 
 Vue.config.productionTip = false;
@@ -18,6 +18,12 @@ const QRCodeShow = (url) => {
 };
 
 Vue.prototype.$QRCodeShow = QRCodeShow;
+
+Vue.use(Quasar, {
+    components: {
+        QIcon
+    }
+});
 
 new Vue({
   render: h => h(App),
