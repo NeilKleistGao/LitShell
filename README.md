@@ -6,7 +6,7 @@ LitShell是一个基于`quasar`和`node.js`的专用博客引擎。
 + 在根目录下和`templates`目录下执行`npm install`
 
 ## 用法
-执行`lit -h`查看详细帮助文档。
+执行`node lit.js -h`查看详细帮助文档。
 
 ## markdowns目录
 #### catalog.json
