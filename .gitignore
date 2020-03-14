@@ -107,7 +107,10 @@ dist
 templates/node_modules/
 node_modules/
 markdowns/*
-templates/public/*
+templates/public/cpp
+templates/public/game
+templates/public/haskell
+templates/public/mongo
 
 templates/src/assets/game.json
 templates/src/assets/cpp.json
