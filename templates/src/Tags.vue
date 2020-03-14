@@ -37,7 +37,7 @@
         data() {
             let catalog = require("./assets/catalog.json");
             return {
-                columns: catalog["columns"]
+                columns: catalog["sections"]
             };
         }
     }

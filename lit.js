@@ -17,6 +17,11 @@ let argv = require("yargs")
         describe: "build and publish your blog on github",
         type: "string"
     })
+    .option("a", {
+        alias: "add",
+        describe: "add a new section",
+        type: "string"
+    })
     .example("lit --publish git@github.com:your_github_name/your_github_name.github.io.git", "publish to your_github_name.github.io")
     .help("h")
     .alias("h", "help")
@@ -31,4 +36,7 @@ if (argv.t !== undefined) {
 }
 if (argv.p !== undefined && argv.p !== "") {
     require("./publish").publish(argv.p);
+}
+if (argv.a !== undefined && argv.a !== "") {
+    require("./add").add(argv.a);
 }

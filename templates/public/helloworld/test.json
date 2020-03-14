@@ -1,8 +1,1 @@
-{
-  "catalog": [
-    {
-      "label": "Hello World!",
-      "children": []
-    }
-  ]
-}
+{"catalog":[{"label":"Hello World!","children":[]}]}

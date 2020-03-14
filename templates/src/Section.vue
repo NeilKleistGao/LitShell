@@ -14,7 +14,7 @@
                             left: 0,
                             right: 0}">
 
-                            <p class="text-h6">{{name}}</p>
+                            <p class="text-h6">{{detail["title"]}}</p>
                             <p>{{detail["full-intro"]}}</p>
                             <q-chip v-for="tag in detail['tags']" :key="tag" color="orange-12" icon="bookmark">
                                 {{tag}}
@@ -86,7 +86,7 @@
                 for (let i = 0; i < 10; i++) {
                     let real = (next - 1) * 10 + i;
                     if (real < this.page_number) {
-                        this.link_list[i] = "/articles/" + this.name + "/" + this.detail.list[i].name;
+                        this.link_list[i] = "/articles/" + this.name + "/" + this.detail.list[i].id;
                     }
                     else {
                         this.link_list[i] = "";

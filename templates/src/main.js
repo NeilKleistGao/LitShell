@@ -4,6 +4,7 @@ import './quasar';
 import QRCode from "qrcode2"
 import {Quasar, QIcon} from 'quasar';
 import router from "./router";
+import mathjax from "./mathjax";
 
 Vue.config.productionTip = false;
 
@@ -18,6 +19,7 @@ const QRCodeShow = (url) => {
 };
 
 Vue.prototype.$QRCodeShow = QRCodeShow;
+Vue.prototype.$mathjax = mathjax;
 
 Vue.use(Quasar, {
     components: {

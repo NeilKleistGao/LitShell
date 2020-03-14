@@ -77,7 +77,6 @@
       this.resetTitle();
     },
     volume(to) {
-      window.console.log(this.$refs.bgm.volume);
       this.$refs.bgm.volume = to / 100;
     }
   },
@@ -100,7 +99,7 @@
 
 <style scoped>
   .background {
-    background-image: url("assets/back.jpg");
+    background-image: url("./assets/back.jpg");
     background-size: cover;
   }
   .background-cover {

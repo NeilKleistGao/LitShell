@@ -1,6 +1,9 @@
+author: test
+# Hello World!
+---
 
 # Hello World!
-测试
+测试:$$x^2$$
 
 ```c++
 #include <iostream>

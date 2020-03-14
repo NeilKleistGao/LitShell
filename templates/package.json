@@ -14,7 +14,9 @@
     "vue": "^2.6.11",
     "vue-router": "^3.1.6",
     "axios": "^0.19.2",
-    "qrcode2": "^1.2.3"
+    "qrcode2": "^1.2.3",
+    "highlight.js": "^9.18.1",
+    "marked": "^0.8.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.2.0",

@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const move = require("./move");
 
 module.exports = {
     clear: function () {
@@ -9,7 +10,7 @@ module.exports = {
         }
         else {
             for (let dir_index in directories) {
-                clearFiles(directories[dir_index]);
+                move.clearDirectory(directories[dir_index], true);
                 console.log("> remove " + directories[dir_index]);
             }
 
@@ -30,22 +31,6 @@ function getAllGitDirectories() {
     }
 
     return git_list;
-}
-
-function clearFiles(dir) {
-    if (fs.statSync(dir).isDirectory()) {
-        let sub_list = fs.readdirSync(dir);
-        for (let index in sub_list) {
-            clearFiles(path.join(dir, sub_list[index]));
-        }
-
-        fs.rmdirSync(dir);
-    }
-    else {
-        fs.unlinkSync(dir);
-
-        console.log("remove " + dir);
-    }
 }
 
 function checkGit(path) {

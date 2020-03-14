@@ -1,9 +1,1 @@
-{
-  "articles": [
-    {
-      "title": "test1",
-      "fold": "helloworld",
-      "name": "test"
-    }
-  ]
-}
+{"articles":[{"id":"test","name":"helloworld","title":"Hello World!","author":"test","time":"Sat Mar 14 2020 18:50:27 GMT+0800 (China Standard Time)"}]}

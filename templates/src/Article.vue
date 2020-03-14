@@ -7,7 +7,7 @@
                         <q-card class="bg-indigo-11">
                             <q-card-section>
                                 <q-spinner-pie v-if="!article_done" color="amber-3" size="5em"></q-spinner-pie>
-                                <article v-if="article_done" v-html="content"></article>
+                                <div id="content" v-if="article_done" v-html="content"></div>
                             </q-card-section>
 
                             <q-card-actions align="right">
@@ -59,6 +59,11 @@
 <script>
     import OpacityBlock from "./components/OpacityBlock";
     import axios from "axios";
+    import marked from 'marked';
+    import hljs from "highlight.js";
+    import 'highlight.js/styles/night-owl.css';
+
+
     export default {
         name: "Article",
         components: {OpacityBlock},
@@ -73,9 +78,25 @@
             };
         },
         created() {
-            axios.get("/" + this.name + "/" + this.id + ".html").then((response) => {
-               this.content = response.data;
-               this.article_done = true;
+            axios.get("/" + this.name + "/" + this.id + ".md").then((response) => {
+                marked.setOptions({
+                        renderer: new marked.Renderer(),
+                        tables: true,
+                        highlight: function(code) {
+                            return hljs.highlightAuto(code).value;
+                        }
+                    }
+                );
+                this.content = marked(response.data).replace("<pre>", "<pre class=\"hljs\">");
+                window.console.log(this.content);
+                this.article_done = true;
+
+                this.$nextTick(function () {
+                    if(this.$mathjax.isMathjaxConfig){
+                        this.$mathjax.initMathjaxConfig();
+                    }
+                    this.$mathjax.MathQueue("content");
+                })
             });
 
             axios.get("/" + this.name + "/" + this.id + ".json").then((response) => {

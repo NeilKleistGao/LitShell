@@ -20,7 +20,7 @@
                             <q-card-section>
                                 <h5>最近发布</h5>
                                 <q-list bordered separator>
-                                    <q-item v-for="item in recent_list" :key="item['title']" clickable v-ripple :to="'/article/' + item['name'] + '/' + item['id']">
+                                    <q-item v-for="item in recent_list" :key="item['title']" clickable v-ripple :to="'/articles/' + item['name'] + '/' + item['id']">
                                         <q-item-section class="text-white">{{item["title"]}}</q-item-section>
                                     </q-item>
                                 </q-list>
@@ -60,7 +60,7 @@
         components: {OpacityBlock},
         data() {
             let config_data = require("./assets/config.json");
-            let recent = require("./assets/recent");
+            let recent = require("./assets/recent.json");
             return {
                 intro: config_data["intro"],
                 recent_list: recent["articles"],

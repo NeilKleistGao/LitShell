@@ -1,0 +1,5 @@
+{
+  "sections":[
+    {"name":"helloworld","title":"我的第一个专栏","cover":"cover.png","intro":"专栏简介","full-intro":"这里是专栏的完整简介，你可以在这里放更多的废话","tags":["test","测试"]}
+  ]
+}
