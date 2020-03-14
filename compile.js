@@ -1,5 +1,6 @@
 const path = require("path");
 const fs = require("fs");
+const move = require("./move");
 
 module.exports = {
     preprocess: function () {
@@ -7,6 +8,11 @@ module.exports = {
         let all_files_list = [];
 
         for (let sec of config["sections"]) {
+            if (!fs.existsSync(path.join(__dirname, "templates", "public", sec["name"]))) {
+                fs.mkdirSync(path.join(__dirname, "templates", "public", sec["name"]));
+            }
+
+            move.copyFile(path.join(__dirname, "markdowns", sec["name"], sec["cover"]), path.join(__dirname, "templates", "public", sec["name"], sec["cover"]));
             let list = compileMarkDowns(sec["name"]);
             packJson(sec, list);
             all_files_list = all_files_list.concat(list);

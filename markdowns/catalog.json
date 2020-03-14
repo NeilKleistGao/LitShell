@@ -1,5 +1,1 @@
-{
-  "sections":[
-    {"name":"helloworld","title":"我的第一个专栏","cover":"cover.png","intro":"专栏简介","full-intro":"这里是专栏的完整简介，你可以在这里放更多的废话","tags":["test","测试"]}
-  ]
-}
+{"sections":[{"name":"game","title":"游戏评测机","cover":"cover.jpg","intro":"关于我所玩过游戏的评论","full-intro":"关于我所玩过游戏的评论","tags":["游戏"]},{"name":"cpp","title":"如何用C++优雅地敲钉子","cover":"cover.jpg","intro":"当你手上拿着C++这把锤子，那你看什么都像钉子","full-intro":"深入研究各种C++问题，文章内容将以C++标准为准，不按照标准发布顺序","tags":["C++"]},{"name":"mongo","title":"MongoDB实验室","cover":"cover.jpg","intro":"MongoDB实验","full-intro":"专栏涵盖了各种MongoDB操作，文章遵循《MongoDB权威指南》","tags":["数据库", "MongoDB"]},{"name":"haskell","title":"Haskell x Euler","cover":"cover.jpg","intro":"Project Euler的Haskell题解","full-intro":"题目网站：https://projecteuler.net，本专栏最早发布于知乎同名专栏，在这里仅包含经典问题的题解，知乎专栏不再更新","tags":["数学", "Haskell"]}]}

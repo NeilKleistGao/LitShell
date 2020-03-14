@@ -39,8 +39,8 @@
                             <q-card-section>
                                 <h5>友情链接</h5>
                                 <q-list bordered separator>
-                                    <q-item v-for="item in friends_list" :key="item['name']" clickable v-ripple :to="item['link']">
-                                        <q-item-section class="text-white">{{item["name"]}}</q-item-section>
+                                    <q-item v-for="item in friends_list" :key="item['name']" clickable v-ripple>
+                                        <q-item-section class="text-white"><a :href="item['link']">{{item["name"]}}</a></q-item-section>
                                     </q-item>
                                 </q-list>
                             </q-card-section>

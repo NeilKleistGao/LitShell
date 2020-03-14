@@ -15,10 +15,9 @@
                         <q-img style="width: 300px; height: 200px" basic :src="'/' + column['name'] + '/' + column['cover']">
                             <div class="absolute-bottom">
                                 <div class="text-h6">{{column["title"]}}</div>
-                                <div class="text-subtitle2">最后更新于：{{column["time"]}}</div>
                             </div>
                         </q-img>
-                        <q-card-section>{{column["intro"]}}</q-card-section>
+                        <q-card-section style="width: 300px; height: 100px">{{column["intro"]}}</q-card-section>
                         <q-card-actions align="right">
                             <q-btn :to="'/articles/' + column['name']" flat>前往专栏</q-btn>
                         </q-card-actions>

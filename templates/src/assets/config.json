@@ -1,9 +1,9 @@
 {
-  "blog_name": "Hello World!",
-  "author": "lit shell",
+  "blog_name": "silent melody",
+  "author": "Neil Kleist Gao",
   "contact": "1208368577@qq.com",
   "intro": "这是关于本网站的文字介绍！",
   "friends": [
-    {"name": "test", "link": "#"}
+    {"name": "wawcac的博客", "link": "https://www.cnblogs.com/wawcac-blog/"}
   ]
 }
