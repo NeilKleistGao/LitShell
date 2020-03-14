@@ -106,13 +106,8 @@ dist
 .idea/
 templates/node_modules/
 node_modules/
-markdowns/*
-templates/public/cpp
-templates/public/game
-templates/public/haskell
-templates/public/mongo
 
-templates/src/assets/game.json
-templates/src/assets/cpp.json
-templates/src/assets/mongo.json
-templates/src/assets/haskell.json
+markdowns/cpp
+markdowns/game
+markdowns/haskell
+markdowns/mongo
